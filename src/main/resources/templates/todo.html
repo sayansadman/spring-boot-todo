@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo Item</title>
+</head>
+<body>
+    <a th:href="@{/}">Back</a>
+    <h1>Todo Details</h1>
+    <div>
+        <p>Title: <span th:text="${todo.title}"></span></p>
+        <p>Description: <span th:text="${todo.description}"></span></p>
+        <p>Completed: <span th:text="${todo.completed}"></span></p>
+        <p>Starred: <span th:text="${todo.starred}"></span></p>
+    </div>
+    <form th:action="@{/delete/{id}(id=$(todo.id))" method="post">
+        <input type="hidden" name="_method" value="DELETE" />
+        <button type="submit">Delete</button>
+    </form>
+</body>
+</html>
